@@ -14,6 +14,11 @@ const routes: Routes = [
             path: '',
             loadChildren: () =>
               import('../menu/menu.module').then(m => m.MenuPageModule)
+          },
+          {
+            path: 'ajouter',
+            loadChildren: () =>
+              import('../menu/ajouter/ajouter.module').then(m => m.AjouterPageModule)
           }
         ]
       },
@@ -42,6 +47,16 @@ const routes: Routes = [
             path: '',
             loadChildren: () =>
               import('../compte/compte.module').then(m => m.ComptePageModule)
+          }
+        ]
+      },
+      {
+        path: 'parametre',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../parametre/parametre.module').then(m => m.ParametrePageModule)
           }
         ]
       },

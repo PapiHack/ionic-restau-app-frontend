@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>
       Compte
     </ion-title>
@@ -7,5 +7,61 @@
 </ion-header>
 
 <ion-content>
-  <h3>Vous êtes sur la page Compte</h3>
+  <ion-grid>
+    <ion-row>
+      <ion-col size-md="6" offset-md="3">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Informations de votre profil</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <form [formGroup]="userInfoForm" (submit)="changeInfos(userInfoForm.value)">
+              <ion-item *ngIf="user.photo">
+                <img [src]="getSantizeUrl(user.photo)" />
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Nom</ion-label>
+                <ion-input type="text" formControlName="nom"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Prénom</ion-label>
+                <ion-input type="text" formControlName="prenom"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Adresse</ion-label>
+                <ion-input type="text" formControlName="adresse"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Telephone</ion-label>
+                <ion-input type="text" formControlName="telephone"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label class="ion-margin ion-text-right" position="floating">Photo de profil</ion-label>
+                  <ion-button expand="block" vertical="bottom" horizontal="center" (click)="getPhoto()">
+                    <ion-icon name="camera"></ion-icon>
+                  </ion-button>
+              </ion-item>
+              <div class="ion-margin ion-text-right">
+                <ion-button fill="outline" color="danger" (click)="onCancel()">
+                  <ion-icon slot="start" name="close"></ion-icon>
+                  Annuler
+                </ion-button>
+                <ion-button type="submit">
+                  <ion-icon slot="start" name="create"></ion-icon>
+                  Editer
+                </ion-button>
+              </div>
+            </form>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="onLogout()">
+      <ion-icon name="log-out"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
 </ion-content>

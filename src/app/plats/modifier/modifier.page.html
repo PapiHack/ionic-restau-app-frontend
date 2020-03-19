@@ -1,9 +1,51 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="tabs/plats"></ion-back-button>
+    </ion-buttons>
     <ion-title>Edition d'un plat</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <p>Edtion du plat n°{{ id }} </p>
+  <ion-grid>
+    <ion-row>
+      <ion-col size-md="6" offset-md="3">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Informations du plat</ion-card-title>
+          </ion-card-header>
+          <ion-card-content *ngIf="plat">
+            <ion-item>
+              <ion-label position="floating">Nom</ion-label>
+              <ion-input [(ngModel)]="plat.nom" type="text"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Description</ion-label>
+              <ion-input [(ngModel)]="plat.description" type="text"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Url d'une image</ion-label>
+              <ion-input [(ngModel)]="plat.imageUrl" type="text"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Prix</ion-label>
+              <ion-input [(ngModel)]="plat.prix" type="number"></ion-input>
+            </ion-item>
+            <div class="ion-margin ion-text-right">
+              <ion-button fill="outline" color="danger" (click)="onCancel()">
+                <ion-icon slot="start" name="close"></ion-icon>
+                Annuler
+              </ion-button>
+              <ion-button (click)="onUpdate()">
+                <ion-icon slot="start" name="create"></ion-icon>
+                Editer
+              </ion-button>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
 </ion-content>

@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>
       Plats
     </ion-title>
@@ -7,12 +7,10 @@
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-item *ngFor="let p of plats" [routerLink]="['modifier/'+p.id]">
-      <ion-label> {{ p.nom }} </ion-label>
-      <ion-label> <strong>{{ p.prix }} fcfa</strong> </ion-label>
-    </ion-item>
+  <ion-list *ngIf="plats">
+    <app-plat *ngFor="let plat of plats" [plat]="plat"></app-plat>
   </ion-list>
+  <p *ngIf="plats.length == 0" class="ion-margin"><strong>Pas encore de plats.</strong></p>
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button [routerLink]="['ajouter']">
       <ion-icon name="add"></ion-icon>

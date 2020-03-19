@@ -1,0 +1,30 @@
+<div>
+    <ion-card class="welcome-card">
+      <img [src]="plat.imageUrl" alt="Image du plat" />
+      <ion-card-header>
+        <ion-card-title>{{ plat.nom }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p> {{ plat.description }} </p>
+         <ion-list lines="none">
+        <ion-list-header>
+          <ion-label><strong>{{ plat.prix }} fcfa</strong></ion-label>
+          <ion-button *ngIf="!isAdmin" fill="outline" class="ion-text-right" color="danger" (click)="onOrder(plat)">
+            <ion-icon name="pricetag"></ion-icon>
+            Commander
+          </ion-button>
+        </ion-list-header>
+        <ion-item>
+        <ion-buttons *ngIf="isAdmin">
+          <ion-button fill="clear" color="primary" [routerLink]="['modifier/'+plat.id]">
+            <ion-icon name="create"></ion-icon>
+          </ion-button>
+          <ion-button color="danger" fill="clear" (click)="onDelete(p)">
+            <ion-icon name="trash"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+        </ion-item>
+      </ion-list>
+      </ion-card-content>
+    </ion-card>
+</div>
