@@ -4,10 +4,11 @@ import { AuthService } from '../services/auth.service';
 import { UtilsService } from '../services/utils.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Location } from '@angular/common';
-import { Plugins, CameraResultType, CameraSource } from '@capacitor/core';
-import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
+import { Plugins, CameraResultType } from '@capacitor/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { User } from '../model/user';
 import { UserService } from '../services/user.service';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-compte',
@@ -16,13 +17,13 @@ import { UserService } from '../services/user.service';
 })
 export class ComptePage implements OnInit {
   userInfoForm: FormGroup;
-  photo;
-  image;
-  user: User;
+  image = null;
+  user: User = new User();
 
   constructor(private router: Router,
               private location: Location,
               private sanitizer: DomSanitizer,
+              private alertCtrl: AlertController,
               private authService: AuthService,
               private utilsService: UtilsService,
               private userService: UserService,
@@ -38,26 +39,45 @@ export class ComptePage implements OnInit {
     });
   }
 
-  changeInfos(userInfos: User): void {
+  changeInfos(event: any, userInfos: User): void {
+    console.log(event);
+    event.preventDefault();
     console.log('INFOS ====> ' + JSON.stringify(userInfos));
     const { nom, prenom, adresse, telephone } = userInfos;
     this.user.nom = nom;
     this.user.prenom = prenom;
     this.user.adresse = adresse;
     this.user.telephone = telephone;
-    this.user.photo = this.image.changingThisBreaksApplicationSecurity;
+    if (this.image !== null) {
+      this.user.photo = this.image.changingThisBreaksApplicationSecurity;
+    }
     console.log('USER', this.user);
-    this.userService.update(this.user).subscribe(
-      data => {
-        console.log('data', data);
-        this.utilsService.presentToast('Les informations de votre compte ont bien été mises à jour !', 'success');
-        this.router.navigate(['tabs/compte']);
-      },
-      error => {
-        console.log('Erreur', error);
-        this.utilsService.presentToast('Une erreur est survenue lors de la mise à jour de vos informations !', 'danger');
-      }
-    );
+    this.alertCtrl.create({
+      header: 'Mise à jour du profil',
+      message: 'Etes-vous sûre de vouloir mettre à jour vos infos ?',
+      buttons: [
+        {
+          text: 'Annuler',
+          role: 'cancel'
+        },
+        {
+          text: 'Oui, j\'en suis sûre!',
+          handler: () => {
+            this.userService.update(this.user).subscribe(
+              data => {
+                console.log('data', data);
+                this.utilsService.presentToast('Les informations de votre compte ont bien été mises à jour !', 'success');
+                this.router.navigate(['tabs/compte']);
+              },
+              error => {
+                console.log('Erreur', error);
+                this.utilsService.presentToast('Une erreur est survenue lors de la mise à jour de vos informations !', 'danger');
+              }
+            );
+          }
+        }
+      ]
+    }).then(alertEl => alertEl.present());
   }
 
   onLogout() {
@@ -71,16 +91,6 @@ export class ComptePage implements OnInit {
     this.location.back();
   }
 
-  async takePicture() {
-    const image = await Plugins.Camera.getPhoto({
-      quality: 100,
-      allowEditing: false,
-      resultType: CameraResultType.DataUrl,
-      source: CameraSource.Camera
-    });
-    this.photo = this.sanitizer.bypassSecurityTrustResourceUrl(image && (image.dataUrl));
-  }
-
   async getPhoto() {
     const image = await Plugins.Camera.getPhoto({
       quality: 90,
@@ -92,6 +102,6 @@ export class ComptePage implements OnInit {
 
   getSantizeUrl(url: string) {
     return this.sanitizer.bypassSecurityTrustUrl(url);
-}
+  }
 
 }

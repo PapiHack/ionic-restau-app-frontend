@@ -22,8 +22,24 @@ export class UserService {
     }).pipe();
   }
 
+  getAll(): Observable<User[]> {
+    return this.http.get<User[]>(`${ this.userEndpoint }`, {
+      headers: {
+        Authorization: `Bearer ${ window.localStorage.getItem('token') }`
+      }
+    }).pipe();
+  }
+
   update(user: User): Observable<User> {
     return this.http.put<User>(`${ this.userEndpoint }/${ user.id }`, user, {
+      headers: {
+        Authorization: `Bearer ${ window.localStorage.getItem('token') }`
+      }
+    }).pipe();
+  }
+
+  updateById(id: number, data: any): Observable<User> {
+    return this.http.put<User>(`${ this.userEndpoint }/${ id }`, data, {
       headers: {
         Authorization: `Bearer ${ window.localStorage.getItem('token') }`
       }

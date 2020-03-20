@@ -15,7 +15,7 @@
             <ion-card-title>Informations de votre profil</ion-card-title>
           </ion-card-header>
           <ion-card-content>
-            <form [formGroup]="userInfoForm" (submit)="changeInfos(userInfoForm.value)">
+            <form [formGroup]="userInfoForm" (submit)="changeInfos($event, userInfoForm.value)">
               <ion-item *ngIf="user.photo">
                 <img [src]="getSantizeUrl(user.photo)" />
               </ion-item>

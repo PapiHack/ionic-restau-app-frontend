@@ -13,7 +13,7 @@
 <ion-content>
   <ion-list *ngIf="menus">
     <ion-list-header>
-      <ion-label><strong>Menu du jour </strong></ion-label>
+      <ion-label><strong>Menu du jour</strong></ion-label>
     </ion-list-header>
     <restau-menu *ngFor="let menu of menus" [menu]="menu"></restau-menu>
   </ion-list>

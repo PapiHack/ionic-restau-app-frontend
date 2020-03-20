@@ -31,6 +31,11 @@ const routes: Routes = [
     loadChildren: () => import('./commande/commande.module').then( m => m.CommandePageModule),
     canActivate: [AuthGuard]
   },
+  {
+    path: 'users',
+    loadChildren: () => import('./users/users.module').then( m => m.UsersPageModule),
+    canActivate: [AuthGuard]
+  },
 ];
 @NgModule({
   imports: [

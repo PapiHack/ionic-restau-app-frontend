@@ -43,4 +43,10 @@
       </form>
     </ion-card-content>
   </ion-card>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" *ngIf="isAdmin">
+    <ion-fab-button [routerLink]="['/users']">
+      <ion-icon name="people"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

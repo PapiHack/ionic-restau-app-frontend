@@ -16,6 +16,7 @@ export class ParametrePage implements OnInit {
 
   user: User;
   resetForm: FormGroup;
+  isAdmin: boolean;
 
   constructor(private authService: AuthService,
               private utilsService: UtilsService,
@@ -32,6 +33,7 @@ export class ParametrePage implements OnInit {
       new_password: [null, [Validators.required, Validators.minLength(4)]],
       confirm_password: [null, [Validators.required, Validators.minLength(4)]]
     });
+    this.isAdmin = this.authService.user.statut.toString() === 'admin' ? true : false;
   }
 
   reset(info: any): void {
