@@ -9,13 +9,14 @@
          <ion-list lines="none">
         <ion-list-header>
           <ion-label><strong>{{ plat.prix }} fcfa</strong></ion-label>
-          <ion-button *ngIf="!isAdmin" fill="outline" class="ion-text-right" color="danger" (click)="onOrder(plat)">
+          <ion-button fill="outline" class="ion-text-right" *ngIf="isMenuPage"
+                      color="danger" (click)="onOrder(plat)">
             <ion-icon name="pricetag"></ion-icon>
             Commander
           </ion-button>
         </ion-list-header>
         <ion-item>
-        <ion-buttons *ngIf="isAdmin">
+        <ion-buttons *ngIf="(isAdmin && !isMenuPage)">
           <ion-button fill="clear" color="primary" [routerLink]="['modifier/'+plat.id]">
             <ion-icon name="create"></ion-icon>
           </ion-button>

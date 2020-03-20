@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { PlatComponent } from '../components/plat/plat.component';
 import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
-import { MenuPage } from '../menu/menu.page';
 
 
 @NgModule({

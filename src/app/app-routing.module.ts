@@ -26,6 +26,11 @@ const routes: Routes = [
     loadChildren: () => import('./menu/ajouter/ajouter.module').then( m => m.AjouterPageModule),
     canActivate: [AuthGuard]
   },
+  {
+    path: 'commande',
+    loadChildren: () => import('./commande/commande.module').then( m => m.CommandePageModule),
+    canActivate: [AuthGuard]
+  },
 ];
 @NgModule({
   imports: [

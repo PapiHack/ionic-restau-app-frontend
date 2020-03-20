@@ -3,18 +3,22 @@
     <ion-title>
       Menu
     </ion-title>
+    <ion-button fill="outline" shape="round" *ngIf="isAdmin"
+                color="light" slot="end" [routerLink]="['/commande']">
+      <ion-icon name="basket"></ion-icon>
+    </ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-list *ngIf="menus">
     <ion-list-header>
-      <ion-label><strong>Menu du jour</strong></ion-label>
+      <ion-label><strong>Menu du jour </strong></ion-label>
     </ion-list-header>
     <restau-menu *ngFor="let menu of menus" [menu]="menu"></restau-menu>
   </ion-list>
   <p *ngIf="menus.length == 0" class="ion-margin"><strong>Pas encore de menu.</strong></p>
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" *ngIf="isAdmin">
     <ion-fab-button [routerLink]="['ajouter']">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>

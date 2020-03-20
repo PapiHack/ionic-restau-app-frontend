@@ -33,5 +33,14 @@ export class UtilsService {
 
   getSantizeUrl(url: string) {
     return this.sanitizer.bypassSecurityTrustUrl(url);
-}
+  }
+
+  getFormattedDate(): string {
+    const currentDate = new Date();
+    const day = currentDate.getDate().toString().length === 1 ? '0' + currentDate.getDate().toString() : currentDate.getDate().toString();
+    // tslint:disable-next-line: max-line-length
+    const curMonth = currentDate.getMonth() + 1;
+    const month = curMonth.toString().length === 1 ? '0' + curMonth.toString() : curMonth.toString();
+    return currentDate.getFullYear() + '-' + month + '-' + day;
+  }
 }
