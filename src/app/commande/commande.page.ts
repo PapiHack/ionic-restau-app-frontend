@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommandeService } from '../services/commande.service';
 import { Commande } from '../model/commande';
+import { UtilsService } from '../services/utils.service';
 
 @Component({
   selector: 'app-commande',
@@ -11,7 +12,8 @@ export class CommandePage implements OnInit {
 
   commandes: Commande[] = [];
 
-  constructor(private commandeService: CommandeService) { }
+  constructor(private commandeService: CommandeService,
+              private utilsService: UtilsService) { }
 
   ngOnInit() {
     this.getAllCommande();
@@ -24,7 +26,7 @@ export class CommandePage implements OnInit {
 
   getAllCommande(): void {
     this.commandeService.getAll().subscribe(
-      commandes => this.commandes = commandes,
+      commandes => this.commandes = commandes.filter(com => com.date_commande.toString() === this.utilsService.getFormattedDate()),
       error => console.log(error)
     );
   }
