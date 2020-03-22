@@ -1,5 +1,7 @@
 {
   "name": "restau-app",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

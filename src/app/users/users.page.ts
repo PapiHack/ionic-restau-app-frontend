@@ -26,6 +26,11 @@ export class UsersPage implements OnInit {
     this.getAllUser();
   }
 
+  // Ionic Page Life Cycle Hook
+  ionViewWillEnter() {
+    this.getAllUser();
+  }
+
   getAllUser() {
     this.userService.getAll().subscribe (
       users => this.users = users.filter(user => user.id !== this.authService.user.id),
@@ -34,8 +39,7 @@ export class UsersPage implements OnInit {
   }
 
   changeUserStatus(user: User): void {
-    console.log(user);
-    user.statut = user.statut.toString() === 'admin' ? userStatus.employe : userStatus.admin;
+    // console.log(user);
     this.alertCtrl.create({
       header: 'Changement de profil utilisateur',
       message: 'Etes-vous vraiment sûr de vouloir changer le statut de cet utilisateur ?',
@@ -47,11 +51,12 @@ export class UsersPage implements OnInit {
         {
           text: 'Oui, j\'en suis sûre!',
           handler: () => {
-            user = { ...user };
-            this.userService.updateById(user.id, { statut: user.statut }).subscribe(
+            const statut = user.statut.toString() === 'admin' ? 'employe' : 'admin';
+            this.userService.updateById(user.id, { statut }).subscribe(
               data => {
                 console.log('data', data);
                 this.utilsService.presentToast('Le profil cet utilsateur a bien été mis à jour !', 'success');
+                this.getAllUser();
                 this.router.navigate(['users']);
               },
               error => console.log('erreur', error)
