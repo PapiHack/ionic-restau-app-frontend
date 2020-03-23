@@ -21,7 +21,7 @@ Après avoir cloné ce repo, placez vous au niveau de ce dernier et saisissez le
 - Démarrer l'application  
 `ionic serve` ou `ionic lab` (cette dernière permet de visualiser l'app sur plusieurs devices)  
 
-### N'oubliez pas de démarrer l'api (qui est juste là), sinon pas de données :c  
+### N'oubliez pas de démarrer l'api (<https://github.com/PapiHack/-ionic-restau-app-backend>), sinon pas de données :c  
 
 ### Auteur ==> Meïssa B.C MBAYE (ESP/M2GLSI/2020) <http://itdev.herokuapp.com>
 
