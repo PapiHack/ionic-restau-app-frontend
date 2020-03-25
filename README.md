@@ -27,14 +27,12 @@ Après avoir cloné ce repo, placez vous au niveau de ce dernier et saisissez le
 
 ### En attendant voici quelques ScreenShots de l'app :)  
 
-<div>
-    <img src="restau-app-img/login.png" width="500"/>
-    <img src="restau-app-img/register.png" width="500"/>
-    <img src="restau-app-img/menu.png" width="500"/>
-    <img src="restau-app-img/plats.png" width="500"/>
-    <img src="restau-app-img/add-plat.png" width="500"/>
-    <img src="restau-app-img/commande.png" width="500"/>
-    <img src="restau-app-img/compte.png" width="500"/>
-    <img src="restau-app-img/parametre.png" width="500"/>
-    <img src="restau-app-img/profil.png" width="500"/>
-</div>
+![screenshot](./restau-app-img/login.png)
+![screenshot](./restau-app-img/register.png)
+![screenshot](./restau-app-img/menu.png)
+![screenshot](./restau-app-img/plats.png)
+![screenshot](./restau-app-img/add-plat.png)
+![screenshot](./restau-app-img/commande.png)
+![screenshot](./restau-app-img/compte.png)
+![screenshot](./restau-app-img/profil.png)
+![screenshot](./restau-app-img/parametre.png)
