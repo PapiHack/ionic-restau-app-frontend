@@ -21,11 +21,14 @@ Après avoir cloné ce repo, placez vous au niveau de ce dernier et saisissez le
 - Démarrer l'application  
 `ionic serve` ou `ionic lab` (cette dernière permet de visualiser l'app sur plusieurs devices)  
 
+- Se connecter à l'application  
+en tant qu'admin `login: meissa - password: passer` -- en tant qu'employé `login: bobo - password: passer`.
+
 ### N'oubliez pas de démarrer l'api (<https://github.com/PapiHack/-ionic-restau-app-backend>), sinon pas de données :c  
 
 ### Auteur ==> Meïssa B.C MBAYE (ESP/M2GLSI/2020) <http://itdev.herokuapp.com>
 
-### En attendant voici quelques ScreenShots de l'app :)  
+### En attendant voici quelques Screenshots de l'app :)  
 
 ![screenshot](./restau-app-img/login.png)
 ![screenshot](./restau-app-img/register.png)
