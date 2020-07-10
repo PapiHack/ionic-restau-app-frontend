@@ -36,6 +36,6 @@ en tant qu'admin `login: meissa - password: passer` -- en tant qu'employé `logi
 ![screenshot](./restau-app-img/plats.png)
 ![screenshot](./restau-app-img/add-plat.png)
 ![screenshot](./restau-app-img/commande.png)
-![screenshot](./restau-app-img/compte.png)
 ![screenshot](./restau-app-img/profil.png)
 ![screenshot](./restau-app-img/parametre.png)
+![screenshot](./restau-app-img/compte.png)

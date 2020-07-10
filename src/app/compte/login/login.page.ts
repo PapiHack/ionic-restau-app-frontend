@@ -25,10 +25,7 @@ export class LoginPage implements OnInit {
   }
 
   login(loginInfos: any): void {
-    // console.log(loginInfos);
-    // console.log(this.authService.redirectUrl);
     this.authService.login(loginInfos).subscribe(data => {
-      // console.log('data after login ===> ' + JSON.stringify(data));
       this.authService.user = data.user;
       this.authService.isAuthenticated = true;
       window.localStorage.setItem('token', data.jwt);

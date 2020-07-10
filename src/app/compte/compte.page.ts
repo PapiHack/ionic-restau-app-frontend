@@ -40,9 +40,7 @@ export class ComptePage implements OnInit {
   }
 
   changeInfos(event: any, userInfos: User): void {
-    console.log(event);
     event.preventDefault();
-    console.log('INFOS ====> ' + JSON.stringify(userInfos));
     const { nom, prenom, adresse, telephone } = userInfos;
     this.user.nom = nom;
     this.user.prenom = prenom;
@@ -65,12 +63,10 @@ export class ComptePage implements OnInit {
           handler: () => {
             this.userService.update(this.user).subscribe(
               data => {
-                console.log('data', data);
                 this.utilsService.presentToast('Les informations de votre compte ont bien été mises à jour !', 'success');
                 this.router.navigate(['tabs/compte']);
               },
               error => {
-                console.log('Erreur', error);
                 this.utilsService.presentToast('Une erreur est survenue lors de la mise à jour de vos informations !', 'danger');
               }
             );

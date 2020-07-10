@@ -39,7 +39,6 @@ export class UsersPage implements OnInit {
   }
 
   changeUserStatus(user: User): void {
-    // console.log(user);
     this.alertCtrl.create({
       header: 'Changement de profil utilisateur',
       message: 'Etes-vous vraiment sûr de vouloir changer le statut de cet utilisateur ?',
