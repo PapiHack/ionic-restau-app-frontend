@@ -26,7 +26,7 @@ en tant qu'admin `login: meissa - password: passer` -- en tant qu'employé `logi
 
 ### N'oubliez pas de démarrer l'api (<https://github.com/PapiHack/-ionic-restau-app-backend>), sinon pas de données :c  
 
-### Auteur ==> Meïssa B.C MBAYE (ESP/M2GLSI/2020) <http://itdev.herokuapp.com>
+### Auteur ==> MBCM
 
 ### En attendant voici quelques Screenshots de l'app :)  
 
@@ -38,4 +38,3 @@ en tant qu'admin `login: meissa - password: passer` -- en tant qu'employé `logi
 ![screenshot](./restau-app-img/commande.png)
 ![screenshot](./restau-app-img/profil.png)
 ![screenshot](./restau-app-img/parametre.png)
-![screenshot](./restau-app-img/compte.png)
