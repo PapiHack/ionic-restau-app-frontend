@@ -24,9 +24,11 @@ Après avoir cloné ce repo, placez vous au niveau de ce dernier et saisissez le
 - Se connecter à l'application  
 en tant qu'admin `login: meissa - password: passer` -- en tant qu'employé `login: bobo - password: passer`.
 
-### N'oubliez pas de démarrer l'api (<https://github.com/PapiHack/-ionic-restau-app-backend>), sinon pas de données :c  
+### N'oubliez pas de démarrer l'api (<https://github.com/PapiHack/-ionic-restau-app-backend>)
 
-### Auteur ==> MBCM
+### Author
+
+- [M.B.C.M](https://itdev.sn) [![My Twitter Link](https://img.shields.io/twitter/follow/the_it_dev?style=social)](https://twitter.com/the_it_dev)
 
 ### En attendant voici quelques Screenshots de l'app :)  
 
